@@ -29,3 +29,8 @@ gulp.task("scripts", () => {
         }))
         .pipe(browsersync.stream());
 });
+
+gulp.task("scriptsLibs", () => {
+    return gulp.src(paths.scripts.libs)
+        .pipe(gulp.dest(paths.scripts.dist))
+});

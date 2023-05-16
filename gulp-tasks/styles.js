@@ -57,3 +57,8 @@ gulp.task("styles", () => {
         }))
         .on("end", browsersync.reload);
 });
+
+gulp.task("stylesLibs", () => {
+    return gulp.src(paths.styles.libs)
+        .pipe(gulp.dest(paths.styles.dist))
+});

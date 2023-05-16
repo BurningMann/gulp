@@ -13,11 +13,13 @@ const requireDir = require('require-dir'),
       src: './src/styles/styles.{scss,sass}',
       dist: './dist/styles/',
       watch: ['./src/blocks/**/*.{scss,sass}', './src/styles/**/*.{scss,sass}'],
+      libs: './src/styles/libs/*.{css,scss,sass}',
     },
     scripts: {
       src: './src/js/scripts.js',
       dist: './dist/js/',
       watch: ['./src/blocks/**/*.js', './src/js/**/*.js'],
+      libs: './src/js/libs/*.js',
     },
     images: {
       src: ['./src/img/**/*.{jpg,jpeg,png,gif,tiff,svg}', '!./src/img/favicon/*.{jpg,jpeg,png,gif,tiff}'],
@@ -50,13 +52,13 @@ export { paths };
 
 export const development = gulp.series(
   'clean',
-  gulp.parallel(['views', 'styles', 'scripts', 'images', 'webp', 'sprites', 'fonts', 'favicons']),
+  gulp.parallel(['views', 'styles', 'stylesLibs', 'scripts', 'scriptsLibs', 'images', 'webp', 'sprites', 'fonts', 'favicons']),
   gulp.parallel('serve')
 );
 
 export const prod = gulp.series(
   'clean',
-  gulp.parallel(['views', 'styles', 'scripts', 'images', 'webp', 'sprites', 'fonts', 'favicons', 'gzip'])
+  gulp.parallel(['views', 'styles', 'stylesLibs', 'scripts', 'scriptsLibs', 'images', 'webp', 'sprites', 'fonts', 'favicons', 'gzip'])
 );
 
 export default development;
