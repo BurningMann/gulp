@@ -1,4 +1,72 @@
-h1, h2, h3, h4, h5, h6, ul {
-    margin: 0;
-    padding: 0;
+:root {
+  --c-black: #1a181a;
+  --c-white: #f1f1f1;
+
+  --container-padding: 1rem;
+
+  --font-family: "Inter Tight", sans-serif;
+  --second-family: "Instrument Serif", sans-serif;
+}
+
+html,
+body {
+  &.noskroll {
+    overflow: hidden;
+  }
+}
+
+html {
+  width: 100%;
+  font-size: 0.625vw;
+  height: stretch;
+
+  @media screen and (max-width: $sm) {
+    font-size: 2.67vw;
+  }
+}
+
+body {
+  position: relative;
+  min-height: stretch;
+  min-width: 320px;
+  background: var(--c-black);
+  color: var(--c-white);
+  font-family: var(--font-family);
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background: #000;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: #eee;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  @supports not selector(::-webkit-scrollbar) {
+    scrollbar-color: #000 #eee;
+    scrollbar-width: thin;
+  }
+}
+
+.hidden-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

@@ -22,9 +22,19 @@ const requireDir = require('require-dir'),
       libs: './src/js/libs/*.js',
     },
     images: {
-      src: ['./src/img/**/*.{jpg,jpeg,png,gif,tiff,svg}', '!./src/img/favicon/*.{jpg,jpeg,png,gif,tiff}'],
+      src: ['./src/img/**/*.{jpg,jpeg,png,gif,tiff,svg,webp}', '!./src/img/favicon/*.{jpg,jpeg,png,gif,tiff}'],
       dist: './dist/img/',
-      watch: './src/img/**/*.{jpg,jpeg,png,gif,svg,tiff}',
+      watch: './src/img/**/*.{jpg,jpeg,png,gif,svg,tiff,webp}',
+    },
+    videos: {
+      src: ['./src/videos/**/*'],
+      dist: './dist/videos/',
+      watch: './src/videos/**/*',
+    },
+    docs: {
+      src: ['./src/docs/**/*'],
+      dist: './dist/docs/',
+      watch: './src/docs/**/*',
     },
     sprites: {
       src: './src/img/sprites/*.svg',
@@ -32,9 +42,9 @@ const requireDir = require('require-dir'),
       watch: './src/img/sprites/*.svg',
     },
     fonts: {
-      src: './src/fonts/**/*.{woff,woff2}',
+      src: './src/fonts/**/*.{ttf,woff,woff2}',
       dist: './dist/fonts/',
-      watch: './src/fonts/**/*.{woff,woff2}',
+      watch: './src/fonts/**/*.{ttf,woff,woff2}',
     },
     favicons: {
       src: './src/img/favicon/*.{jpg,jpeg,png,gif}',
@@ -52,13 +62,40 @@ export { paths };
 
 export const development = gulp.series(
   'clean',
-  gulp.parallel(['views', 'styles', 'stylesLibs', 'scripts', 'scriptsLibs', 'images', 'webp', 'sprites', 'fonts', 'favicons']),
+  gulp.parallel([
+    'views',
+    'styles',
+    'stylesLibs',
+    'scripts',
+    'scriptsLibs',
+    'images',
+    'videos',
+    'docs',
+    /* 'webp', */
+    'sprites',
+    'fonts',
+    'favicons',
+  ]),
   gulp.parallel('serve')
 );
 
 export const prod = gulp.series(
   'clean',
-  gulp.parallel(['views', 'styles', 'stylesLibs', 'scripts', 'scriptsLibs', 'images', 'webp', 'sprites', 'fonts', 'favicons', 'gzip'])
+  gulp.parallel([
+    'views',
+    'styles',
+    'stylesLibs',
+    'scripts',
+    'scriptsLibs',
+    'images',
+    'videos',
+    'docs',
+    /* 'webp', */
+    'sprites',
+    'fonts',
+    'favicons',
+    'gzip',
+  ])
 );
 
 export default development;

@@ -2,7 +2,29 @@
 <html lang="ru">
   @@include("../blocks/modules/head/head.html")
   <body>
-    @@include("../blocks/modules/header/header.html") @@include("../blocks/modules/footer/footer.html")
-    @@include("../blocks/modules/scripts/scripts.html")
+    <main class="page">
+      <style>
+        .site-links {
+          display: flex;
+          flex-direction: column;
+          padding: 4rem 0 6rem;
+          align-items: center;
+        }
+
+        .site-links__item {
+          font-weight: 500;
+          font-size: 2rem;
+          margin-bottom: 2rem;
+          text-transform: uppercase;
+          width: max-content;
+        }
+      </style>
+      <div class="container">
+        <div class="site-links">
+          <a href="./home.html" target="_blank" class="site-links__item">Главная</a>
+          <a href="./404.html" target="_blank" class="site-links__item">404</a>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
